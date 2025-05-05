@@ -15,6 +15,8 @@ export const Prevod = () => {
                     onChange={(e) => setText(e.target.value)}
                     style={{ padding: '5px' }}
                 />
+                <select></select>
+                <button>Převeď</button>
             </div>
         </div>
     )
