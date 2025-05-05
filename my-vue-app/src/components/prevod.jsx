@@ -1,7 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const Prevod = () => {
     const [cislo, setCislo] = useState(0);
+
+    const  [kurzy, setKurzy] = useState([]);
+
+    const getKurvy = async () =>  {
+        try  {
+            const response = await fetch("https://api.frankfurter.dev/v1/latest?base=EUR");
+            const data = await response.json();
+            setKurzy(data.rates);
+        } catch(error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+        getKurvy();
+    }, []);
 
     return(
         <div>
@@ -15,7 +31,13 @@ export const Prevod = () => {
                     onChange={(e) => setCislo(e.target.value)}
                     style={{ padding: '5px' }}
                 />
-                <select></select>
+                <select>
+                    {kurzy && 
+                        kurzy.map(key, value) => {
+                            <option value={value}>{key}</option>
+                        })
+                    }
+                </select>
                 <button>Převeď</button>
             </div>
         </div>
