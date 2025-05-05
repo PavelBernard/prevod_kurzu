@@ -11,7 +11,7 @@ export const Prevod = () => {
             <div>
                 <input
                     type="text"
-                    value={text}
+                    value={cislo}
                     onChange={(e) => setCislo(e.target.value)}
                     style={{ padding: '5px' }}
                 />
