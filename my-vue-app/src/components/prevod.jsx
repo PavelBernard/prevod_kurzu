@@ -26,14 +26,14 @@ export const Prevod = () => {
             </h1>
             <div>
                 <input
-                    type="text"
+                    type="number"
                     value={cislo}
                     onChange={(e) => setCislo(e.target.value)}
                     style={{ padding: '5px' }}
                 />
                 <select>
                     {kurzy && 
-                        kurzy.map(key, value) => {
+                        Object.entries(kurzy).map(([key, value]) => {
                             <option value={value}>{key}</option>
                         })
                     }
