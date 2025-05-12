@@ -6,7 +6,7 @@ export const Prevod = () => {
     const [vysledek, setVysledek] = useState(0);
     const [vybrany, setVybrany] = useState(0);
 
-    const getKurvy = async () => {
+    const getKurzy = async () => {
         try {
             const response = await fetch("https://api.frankfurter.dev/v1/latest?base=EUR");
             const data = await response.json();
@@ -18,7 +18,7 @@ export const Prevod = () => {
     };
     
     useEffect(() => {
-        getKurvy();
+        getKurzy();
     }, []);
 
     const vypocitej = () => {
